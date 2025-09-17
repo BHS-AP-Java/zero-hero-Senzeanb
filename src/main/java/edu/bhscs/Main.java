@@ -16,7 +16,37 @@ class Main {
 
   public static void main(String[] arges) {
     Person p = new Person("Sen", 17);
+    Subject p2 = new Subject("ApCompSciA");
+    System.out.println("Subject name: " + p2.getName());
     System.out.println(p.getName());
+    System.out.println(p.getName());
+    System.out.println(p.getName());
+    System.out.println(p.getAge());
+    System.out.println(p.getAge());
+    System.out.println(p.getAge());
+    System.out.println(p.getAge() + p.getName());
+    System.out.println(p.getName() + p.getAge());
+    System.out.println(p2.getSubject());
+    System.out.println(p2.getSubject());
+    System.out.println(p2.getSubject());
+    System.out.println(p.getName() + p.getAge() + p2.getSubject());
+    System.out.println(p.getName() + p.getAge() + p2.getSubject());
+  }
+
+  public static class Subject {
+    private String name;
+
+    public Subject(String name) {
+      this.name = name;
+    }
+
+    public String getName() {
+      return name;
+    }
+
+    public String getSubject() {
+      return name;
+    }
   }
 
   public static class Person {
