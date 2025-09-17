@@ -14,28 +14,28 @@ package edu.bhscs;
 
 class Main {
 
-    public static void main(String[] arges) {
-        Person p = new Person("Sen", 17);
-        System.out.println(p.getName());
+  public static void main(String[] arges) {
+    Person p = new Person("Sen", 17);
+    System.out.println(p.getName());
+  }
+
+  public static class Person {
+    private String name;
+    private int age;
+
+    // Constructor
+    public Person(String name, int age) {
+      this.name = name;
+      this.age = age;
     }
 
-    public static class Person {
-        private String name;
-        private int age;
-
-        // Constructor
-        public Person(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        // Getter methods
-        public String getName() {
-            return name;
-        }
-
-        public int getAge() {
-            return age;
-        }
+    // Getter methods
+    public String getName() {
+      return name;
     }
+
+    public int getAge() {
+      return age;
+    }
+  }
 }
