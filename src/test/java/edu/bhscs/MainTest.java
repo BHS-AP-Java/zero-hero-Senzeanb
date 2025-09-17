@@ -36,7 +36,7 @@ class MainTest {
   @DisplayName("height=3 with '#': builds three lines 1..3")
   void drawIt_height3_hash() {
     String expected = "" + "#\n" + "##\n" + "###\n";
-    // assertEquals(expected, Main.drawIt(3, '#'));
+    assertEquals(expected, Main.drawIt(3, '#'));
   }
 
   @Disabled

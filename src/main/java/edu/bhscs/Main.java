@@ -33,6 +33,26 @@ class Main {
     System.out.println(p.getName() + p.getAge() + p2.getSubject());
   }
 
+  /**
+   * Builds a right-angled staircase string of given height using stepChar.
+   * Each line i contains i stepChars, ending with a newline.
+   * Returns empty string for height 0.
+   * Throws IllegalArgumentException for negative height.
+   */
+  public static String drawIt(int height, char stepChar) {
+    if (height < 0) {
+      throw new IllegalArgumentException("Height must be non-negative");
+    }
+    StringBuilder sb = new StringBuilder();
+    for (int i = 1; i <= height; i++) {
+      for (int j = 0; j < i; j++) {
+        sb.append(stepChar);
+      }
+      sb.append('\n');
+    }
+    return sb.toString();
+  }
+
   public static class Subject {
     private String name;
 
