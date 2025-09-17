@@ -1,7 +1,7 @@
 // sen bajgai
 // P02
 // Zero-Hero
-// 09/12/2025
+// 09/17/2025
 
 /*
  * DESCRIPTION: Whatever Mr Reiber says
@@ -14,12 +14,28 @@ package edu.bhscs;
 
 class Main {
 
-  public static void main(String[] args) {
-    System.out.println("--------------------");
-    System.out.println("!!!! PROGRAM START !!!!");
-    System.out.println();
-    System.out.println("hi");
-    System.out.println("!!!! PROGRAM END !!!!");
-    System.out.println("--------------------");
-  }
+    public static void main(String[] arges) {
+        Person p = new Person("Sen", 17);
+        System.out.println(p.getName());
+    }
+
+    public static class Person {
+        private String name;
+        private int age;
+
+        // Constructor
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // Getter methods
+        public String getName() {
+            return name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+    }
 }
