@@ -31,13 +31,16 @@ class Main {
     System.out.println(p2.getSubject());
     System.out.println(p.getName() + p.getAge() + p2.getSubject());
     System.out.println(p.getName() + p.getAge() + p2.getSubject());
+
+    // Show Nigerian Prince Email in terminal
+    NigerianPrinceEmail email = new NigerianPrinceEmail();
+    email.printEmail();
   }
 
   /**
-   * Builds a right-angled staircase string of given height using stepChar.
-   * Each line i contains i stepChars, ending with a newline.
-   * Returns empty string for height 0.
-   * Throws IllegalArgumentException for negative height.
+   * Builds a right-angled staircase string of given height using stepChar. Each line i contains i
+   * stepChars, ending with a newline. Returns empty string for height 0. Throws
+   * IllegalArgumentException for negative height.
    */
   public static String drawIt(int height, char stepChar) {
     if (height < 0) {
