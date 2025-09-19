@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 
 class MainTest {
 
-  // Student name
-  // Class period
-  // Project name
+  // Student name: Sen Bajgai
+  // Class period: 02
+  // Project name:
   // Date
   /*
    * TEST CLASS DESCRIPTION:
