@@ -1,13 +1,13 @@
 package edu.bhscs;
 
 public class Awesome {
-	private String name;
+  private String name;
 
-	public Awesome(String name) {
-		this.name = name;
-	}
+  public Awesome(String name) {
+    this.name = name;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 }

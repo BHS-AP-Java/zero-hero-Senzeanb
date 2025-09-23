@@ -8,16 +8,17 @@ public class Cake {
   // Vanilla cake constructor
   public Cake() {
     this.flavor = "vanilla";
-    this.ingredients = new String[] {
-      "flour",
-      "vanilla extract",
-      "white chocolate",
-      "butter",
-      "6 eggs",
-      "1 cup of whole milk",
-      "1/4 cup butter",
-      "1 cup condensed milk"
-    };
+    this.ingredients =
+        new String[] {
+          "flour",
+          "vanilla extract",
+          "white chocolate",
+          "butter",
+          "6 eggs",
+          "1 cup of whole milk",
+          "1/4 cup butter",
+          "1 cup condensed milk"
+        };
     System.out.println("bake the cake... flavor: " + this.flavor);
   }
 
@@ -28,7 +29,6 @@ public class Cake {
     System.out.println("bake the cake... flavor: " + this.flavor);
   }
 
-
   public String getFlavor() {
     return flavor;
   }
@@ -36,5 +36,4 @@ public class Cake {
   public String[] getIngredients() {
     return ingredients;
   }
-
 }
