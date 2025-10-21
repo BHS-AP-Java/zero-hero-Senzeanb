@@ -1,68 +1,34 @@
 package edu.bhscs;
 
 public class Cake {
-  private String flavor;
-  private String[] ingredients;
-  private String shape;
-  private String state; // e.g., "fresh", "moldy", "decomposed"
+  // fieds or properties
+  String ingredient;
 
-  // Vanilla cake constructor
+  // constructors
   public Cake() {
-    this.flavor = "vanilla";
-    this.ingredients =
-        new String[] {
-          "flour",
-          "vanilla extract",
-          "white chocolate",
-          "butter",
-          "6 eggs",
-          "1 cup of whole milk",
-          "1/4 cup butter",
-          "1 cup condensed milk"
-        };
-    this.shape = "pentagon";
-    this.state = "fresh";
-    System.out.println("bake the cake... flavor: " + this.flavor + ", shape: " + this.shape);
+    this.ingredient = "chocolate";
   }
 
-  // Custom cake constructor
-  public Cake(String flavor, String[] ingredients) {
-    this.flavor = flavor;
-    this.ingredients = ingredients;
-    this.shape = "pentagon";
-    this.state = "fresh";
-    System.out.println("bake the cake... flavor: " + this.flavor + ", shape: " + this.shape);
-  }
+  // methods
+  void draw(String icing, int l, int h, int w) {
+    for (int count = 0; count < h; count++) {
 
-  public String getFlavor() {
-    return flavor;
-  }
+      for (int i = 0; i < l + count; i++) {
 
-  public String[] getIngredients() {
-    return ingredients;
-  }
-
-  public String getShape() {
-    return shape;
-  }
-
-  public String getState() {
-    return state;
-  }
-
-  // Simulate cake going moldy after days
-  public void growMold() {
-    if (state.equals("fresh")) {
-      state = "moldy";
-      System.out.println("The " + flavor + " cake has grown green mold!");
+        System.out.println(this.ingredient + this.ingredient);
+        System.out.print("" + icing + icing);
+        System.out.print(icing);
+      }
+      for (int j = l * l + h * h; j >= w; j--) {
+        System.out.print(icing + ingredient + j);
+      }
+      System.out.println(("length:" + l) + "-!-" + ("width:" + w) + "-!-" + ("height:" + h));
+      System.out.println("area of 2D cake" + (l * w * h));
     }
-  }
+    System.out.println();
 
-  // Simulate cake decomposing
-  public void decompose() {
-    if (state.equals("moldy")) {
-      state = "decomposed";
-      System.out.println("The " + flavor + " cake has decomposed and is thrown away.");
-    }
+    System.out.println("--------!--!--!--!--!----");
+
+    System.out.println("Drawing a cake...");
   }
 }

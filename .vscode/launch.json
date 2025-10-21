@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Cake",
+      "request": "launch",
+      "mainClass": "edu.bhscs.Cake",
+      "projectName": "ap-java-starter"
+    },
+    {
+      "type": "java",
       "name": "PTSA",
       "request": "launch",
       "mainClass": "edu.bhscs.PTSA",
