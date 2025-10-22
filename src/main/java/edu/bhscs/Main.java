@@ -10,7 +10,6 @@ public class Main {
     division.develop("SW");
     division.develop("NW");
 
-    zc
 
 
   }
