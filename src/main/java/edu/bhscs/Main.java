@@ -1,34 +1,34 @@
 package edu.bhscs;
 
 public class Main {
-  /*
-   * GOALS: Simulate a bake sale. Baker bakes cakes, sells to Customer, PTSA collects funds. INPUT:
-   * User decides cake type, cake price, and job choice. OUTPUT: Messages showing baker, cake,
-   * customer, and PTSA changes. EDGE CASES: Negative price, customer can't afford, yes/no
-   * variations.
-   */
 
+  /**
+   * GOALS: - Simulate a bake sale with a Player, Baker, Customer, PTSA, and Cake. - All user input
+   * handled through Player (encapsulation). INPUTS: - Cake type - Symbol for drawing - Number of
+   * rows for drawing OUTPUTS: - Printed messages showing baking, selling, and drawing the cake.
+   * EDGE CASES: - User enters 0 or negative values for rows or price.
+   */
   public static void main(String[] args) {
     Player player = new Player();
 
-    // Setup
-    Flour flour = new Flour();
-    Baker baker = new Baker(player.getName(), player, flour);
-    Customer customer = new Customer("Alice");
-    PTSA ptsa = new PTSA();
-    Store bakery = new Store("Sweet Treats");
+    // create flour and baker
+    Flour flour = new Flour("All-purpose flour");
+    Baker baker = new Baker("Alice", player, flour);
 
-    System.out.println("\n--- WELCOME TO THE BAKE SALE SIMULATION ---\n");
+    // create a customer
+    Customer customer = new Customer("Bob", 100);
 
-    // Interactions
-    baker.takeJob(bakery);
-    baker.takeOrder(customer, ptsa);
+    // bake a cake
+    Cake cake = baker.bakeCake();
 
-    // Show final states
-    System.out.println("\n--- FINAL STATUS ---");
-    System.out.println("Baker cash: $" + baker.getCash());
-    System.out.println("Customer has: " + customer.getCake());
-    System.out.println("PTSA total funds: $" + ptsa.getFunds());
-    System.out.println("Baker works at: " + baker.getPlaceOfWork());
+    // show cake. details
+    System.out.println("\nCake created: " + cake);
+
+    // draw cake (assignment part)
+    String symbol = player.giveAnswer("Enter a symbol to draw your cake:");
+    int rows = player.getInt("Enter how many rows to draw:");
+    cake.draw(symbol, rows);
+
+    System.out.println("\nThank you for visiting the Bake Sale!");
   }
 }

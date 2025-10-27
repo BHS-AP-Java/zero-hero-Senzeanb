@@ -3,12 +3,16 @@ package edu.bhscs;
 public class Flour {
   private String type;
 
-  public Flour() {
-    this.type = "All-Purpose";
+  public Flour(String type) {
+    this.type = type;
+  }
+
+  public String getType() {
+    return type;
   }
 
   @Override
   public String toString() {
-    return type + " flour";
+    return type;
   }
 }

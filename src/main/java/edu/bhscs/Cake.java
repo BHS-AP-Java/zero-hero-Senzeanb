@@ -42,4 +42,14 @@ public class Cake {
       System.out.println("Cake price updated to $" + price);
     }
   }
+
+  public void draw(String symbol, int repeatCount) {
+    System.out.println("Drawing your " + type + " cake:");
+    for (int i = 0; i < repeatCount; i++) {
+      for (int j = 0; j < slices; j++) {
+        System.out.print(symbol);
+      }
+      System.out.println();
+    }
+  }
 }

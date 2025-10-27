@@ -26,12 +26,17 @@ public class Baker {
   public void takeOrder(Customer c, PTSA ptsa) {
     int price = p.getInt("How much does the cake cost?");
     Cake cake = bakeCake();
+    String symbol = p.giveAnswer("What symbol should I use to draw your cake?");
+    int repeatCount = p.getInt("How many lines tall should your cake be?");
+    cake.draw(symbol, repeatCount);
+
     cash += c.pay(price);
     ptsa.collectFunds(price);
     c.takeCake(cake);
   }
 
-  private Cake bakeCake() {
+  public Cake bakeCake() {
+
     String type = p.giveAnswer("What type of cake should I bake?");
     Cake cake = new Cake(type, f);
     System.out.println(name + " baked a " + cake);
