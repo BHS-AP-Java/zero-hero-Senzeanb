@@ -14,6 +14,13 @@ public class Baker {
     this.cash = 0;
   }
 
+//Constructor
+Baker(String name){
+  this.name = name;
+}
+public Baker (Player p){
+  this.p = p;
+}
   // Job method
   public void takeJob(Store bakery) {
     if (p.getYesNo("Do you want to work at " + bakery.getName() + "?")) {
@@ -56,5 +63,9 @@ public class Baker {
 
   public Store getPlaceOfWork() {
     return placeOfWork;
+  }
+
+  public Cake bakes(int i, String string) {
+    return new Cake(i, string);
   }
 }

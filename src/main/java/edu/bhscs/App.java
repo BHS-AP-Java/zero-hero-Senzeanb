@@ -1,12 +1,16 @@
 package edu.bhscs;
 
 public class App {
-  public void main(String[] arges) {
-    date10_21();
-    System.out.println("I am the app");
+  public static void main(String[] arges) {
+    date10_27();
   }
 
-  public static void date10_21() {
-    System.out.println("Today's date is October 21");
+  public static void date10_27() {
+    Baker bob = new Baker("Bob");
+    Table t = new Table(3, 15);
+    Cake bDay = bob.bakes(5, "Suzzie");
+    bDay.draw(t);
+
   }
-}
+  }
+
