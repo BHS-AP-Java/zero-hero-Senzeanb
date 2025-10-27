@@ -14,38 +14,41 @@ public class Baker {
     this.cash = 0;
   }
 
+  // Job method
   public void takeJob(Store bakery) {
     if (p.getYesNo("Do you want to work at " + bakery.getName() + "?")) {
       this.placeOfWork = bakery;
-      System.out.println(name + " now works at " + placeOfWork.getName());
+      System.out.println(name + " now works at " + bakery.getName());
     } else {
       System.out.println(name + " declined the job at " + bakery.getName());
     }
   }
 
+  // Take order from a customer
   public void takeOrder(Customer c, PTSA ptsa) {
     int price = p.getInt("How much does the cake cost?");
-    Cake cake = bakeCake();
-    String symbol = p.giveAnswer("What symbol should I use to draw your cake?");
-    int repeatCount = p.getInt("How many lines tall should your cake be?");
-    
 
+    // Ask cake details
+    String type = p.giveAnswer("What type of cake should I bake?");
+    String frosting = p.giveAnswer("What frosting do you want on your cake?");
+    int layers = p.getInt("How many layers should the cake have?");
+
+    Cake cake = new Cake(type, frosting, layers); // matches Cake constructor
+
+    // Ask Player for drawing options
+    String playerName = p.giveAnswer("Enter your name for the cake:");
+    String playerAge = p.giveAnswer("Enter your age for the cake:");
+
+    // Draw the cake
+    cake.draw(playerName, playerAge);
+
+    // Complete transaction
     cash += c.pay(price);
     ptsa.collectFunds(price);
     c.takeCake(cake);
+
+    System.out.println(name + " now has $" + cash);
   }
-
-
-
-    public Cake bakeCake() {
-    String type = p.giveAnswer("What type of cake should I bake?");
-    char symbol = '#'; // default or ask player
-    int layers = 3; // default or ask player
-    Cake cake = new Cake(type, symbol, layers);
-    System.out.println(name + " baked a " + cake.getType() + " cake!");
-    return cake;
-  }
-
 
   public int getCash() {
     return cash;

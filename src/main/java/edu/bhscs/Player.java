@@ -18,16 +18,22 @@ public class Player {
     System.out.print(prompt + " ");
     while (!sc.hasNextInt()) {
       System.out.println("Please enter a number.");
-      sc.next(); // discard invalid input
+      sc.next();
     }
     int result = sc.nextInt();
     sc.nextLine(); // consume newline
     return result;
   }
 
+  // THIS is what Baker needs
   public boolean getYesNo(String prompt) {
     System.out.print(prompt + " (y/n) ");
     String response = sc.nextLine();
     return response.equalsIgnoreCase("y");
+  }
+
+  public String getName() {
+    System.out.print("Enter your name: ");
+    return sc.nextLine();
   }
 }
