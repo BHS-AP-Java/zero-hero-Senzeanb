@@ -2,54 +2,48 @@ package edu.bhscs;
 
 public class Cake {
   private String type;
-  private int slices;
-  private double price;
+  private char symbol;
+  private int layers;
 
-  public Cake(String type, Flour f) {
+  public Cake(String type, char symbol, int layers) {
     this.type = type;
-    this.slices = 8;
-    this.price = 20.0;
-    System.out.println("Baking with " + f);
+    this.symbol = symbol;
+    this.layers = layers;
   }
 
+  // Getter for Customer
   public String getType() {
     return type;
   }
 
-  public int getSlices() {
-    return slices;
-  }
+  // Draw method using nested loops
+  public void draw() {
+    System.out.println("Here's your cake: " + type);
 
-  public double getPrice() {
-    return price;
-  }
-
-  @Override
-  public String toString() {
-    return type + " Cake | Slices: " + slices + " | Price: $" + price;
-  }
-
-  public void eatSlice() {
-    if (slices > 0) {
-      slices--;
-      System.out.println("One slice eaten. Slices left: " + slices);
-    }
-  }
-
-  public void changePrice(double newPrice) {
-    if (newPrice >= 0) {
-      price = newPrice;
-      System.out.println("Cake price updated to $" + price);
-    }
-  }
-
-  public void draw(String symbol, int repeatCount) {
-    System.out.println("Drawing your " + type + " cake:");
-    for (int i = 0; i < repeatCount; i++) {
-      for (int j = 0; j < slices; j++) {
-        System.out.print(symbol);
+    // Top decoration
+    for (int i = 0; i < layers; i++) {
+      for (int j = 0; j < layers - i; j++) {
+        System.out.print(" ");
+      }
+      for (int k = 0; k < i * 2 + 1; k++) {
+        System.out.print("*");
       }
       System.out.println();
     }
+
+    // Body of the cake
+    for (int i = 0; i < layers; i++) {
+      System.out.print("|");
+      for (int j = 0; j < layers * 2; j++) {
+        System.out.print(symbol);
+      }
+      System.out.println("|");
+    }
+
+    // Base
+    for (int i = 0; i < layers * 2 + 2; i++) {
+      System.out.print("-");
+    }
+    System.out.println();
   }
 }

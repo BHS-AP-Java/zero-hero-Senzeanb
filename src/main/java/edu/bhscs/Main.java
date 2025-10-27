@@ -1,34 +1,32 @@
 package edu.bhscs;
 
 public class Main {
-
-  /**
-   * GOALS: - Simulate a bake sale with a Player, Baker, Customer, PTSA, and Cake. - All user input
-   * handled through Player (encapsulation). INPUTS: - Cake type - Symbol for drawing - Number of
-   * rows for drawing OUTPUTS: - Printed messages showing baking, selling, and drawing the cake.
-   * EDGE CASES: - User enters 0 or negative values for rows or price.
-   */
   public static void main(String[] args) {
+    // Create the Player
     Player player = new Player();
 
-    // create flour and baker
-    Flour flour = new Flour("All-purpose flour");
-    Baker baker = new Baker("Alice", player, flour);
+    // Ask player for cake properties
+    String cakeType = player.giveAnswer("What type of cake should I bake?");
+    char symbol = player.giveAnswer("Which symbol to draw your cake?").charAt(0);
+    int layers = player.getInt("How many layers tall should the cake be?");
 
-    // create a customer
-    Customer customer = new Customer("Bob", 100);
+    // Create the Cake object
+    Cake cake = new Cake(cakeType, symbol, layers);
 
-    // bake a cake
-    Cake cake = baker.bakeCake();
+    // Draw the cake
+    cake.draw();
 
-    // show cake. details
-    System.out.println("\nCake created: " + cake);
+    // Optional: Customer buys the cake
+    String customerName = player.giveAnswer("Enter customer name:");
+    int customerCash = player.getInt("How much money does the customer have?");
+    Customer customer = new Customer(customerName, customerCash);
 
-    // draw cake (assignment part)
-    String symbol = player.giveAnswer("Enter a symbol to draw your cake:");
-    int rows = player.getInt("Enter how many rows to draw:");
-    cake.draw(symbol, rows);
+    int price = player.getInt("Set the price of the cake:");
+    int payment = customer.pay(price);
+    if (payment > 0) {
+      customer.takeCake(cake);
+    }
 
-    System.out.println("\nThank you for visiting the Bake Sale!");
+    System.out.println("\nYour cake is ready to enjoy!");
   }
 }

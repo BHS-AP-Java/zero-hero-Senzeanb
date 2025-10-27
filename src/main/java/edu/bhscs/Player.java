@@ -30,9 +30,4 @@ public class Player {
     String response = sc.nextLine();
     return response.equalsIgnoreCase("y");
   }
-
-  public String getName() {
-    System.out.print("Enter your name: ");
-    return sc.nextLine();
-  }
 }

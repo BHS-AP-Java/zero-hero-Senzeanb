@@ -28,20 +28,24 @@ public class Baker {
     Cake cake = bakeCake();
     String symbol = p.giveAnswer("What symbol should I use to draw your cake?");
     int repeatCount = p.getInt("How many lines tall should your cake be?");
-    cake.draw(symbol, repeatCount);
+    
 
     cash += c.pay(price);
     ptsa.collectFunds(price);
     c.takeCake(cake);
   }
 
-  public Cake bakeCake() {
 
+
+    public Cake bakeCake() {
     String type = p.giveAnswer("What type of cake should I bake?");
-    Cake cake = new Cake(type, f);
-    System.out.println(name + " baked a " + cake);
+    char symbol = '#'; // default or ask player
+    int layers = 3; // default or ask player
+    Cake cake = new Cake(type, symbol, layers);
+    System.out.println(name + " baked a " + cake.getType() + " cake!");
     return cake;
   }
+
 
   public int getCash() {
     return cash;
