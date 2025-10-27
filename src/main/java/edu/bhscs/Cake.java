@@ -1,34 +1,45 @@
 package edu.bhscs;
 
 public class Cake {
-  // fieds or properties
-  String ingredient;
+  private String type;
+  private int slices;
+  private double price;
 
-  // constructors
-  public Cake() {
-    this.ingredient = "chocolate";
+  public Cake(String type, Flour f) {
+    this.type = type;
+    this.slices = 8;
+    this.price = 20.0;
+    System.out.println("Baking with " + f);
   }
 
-  // methods
-  void draw(String icing, int l, int h, int w) {
-    for (int count = 0; count < h; count++) {
+  public String getType() {
+    return type;
+  }
 
-      for (int i = 0; i < l + count; i++) {
+  public int getSlices() {
+    return slices;
+  }
 
-        System.out.println(this.ingredient + this.ingredient);
-        System.out.print("" + icing + icing);
-        System.out.print(icing);
-      }
-      for (int j = l * l + h * h; j >= w; j--) {
-        System.out.print(icing + ingredient + j);
-      }
-      System.out.println(("length:" + l) + "-!-" + ("width:" + w) + "-!-" + ("height:" + h));
-      System.out.println("area of 2D cake" + (l * w * h));
+  public double getPrice() {
+    return price;
+  }
+
+  @Override
+  public String toString() {
+    return type + " Cake | Slices: " + slices + " | Price: $" + price;
+  }
+
+  public void eatSlice() {
+    if (slices > 0) {
+      slices--;
+      System.out.println("One slice eaten. Slices left: " + slices);
     }
-    System.out.println();
+  }
 
-    System.out.println("--------!--!--!--!--!----");
-
-    System.out.println("Drawing a cake...");
+  public void changePrice(double newPrice) {
+    if (newPrice >= 0) {
+      price = newPrice;
+      System.out.println("Cake price updated to $" + price);
+    }
   }
 }

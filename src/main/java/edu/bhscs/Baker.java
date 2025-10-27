@@ -1,27 +1,48 @@
 package edu.bhscs;
 
 public class Baker {
-  private double money;
-  private int cakesSold;
+  private Player p;
+  private Flour f;
+  private Store placeOfWork;
+  private int cash;
+  private String name;
 
-  public Baker() {
-    this.money = 0.0;
-    this.cakesSold = 0;
+  public Baker(String name, Player p, Flour f) {
+    this.name = name;
+    this.p = p;
+    this.f = f;
+    this.cash = 0;
   }
 
-  public void receivePayment(double amount) {
-    money += amount;
+  public void takeJob(Store bakery) {
+    if (p.getYesNo("Do you want to work at " + bakery.getName() + "?")) {
+      this.placeOfWork = bakery;
+      System.out.println(name + " now works at " + placeOfWork.getName());
+    } else {
+      System.out.println(name + " declined the job at " + bakery.getName());
+    }
   }
 
-  public void sellCake() {
-    cakesSold++;
+  public void takeOrder(Customer c, PTSA ptsa) {
+    int price = p.getInt("How much does the cake cost?");
+    Cake cake = bakeCake();
+    cash += c.pay(price);
+    ptsa.collectFunds(price);
+    c.takeCake(cake);
   }
 
-  public double getMoney() {
-    return money;
+  private Cake bakeCake() {
+    String type = p.giveAnswer("What type of cake should I bake?");
+    Cake cake = new Cake(type, f);
+    System.out.println(name + " baked a " + cake);
+    return cake;
   }
 
-  public int getCakesSold() {
-    return cakesSold;
+  public int getCash() {
+    return cash;
+  }
+
+  public Store getPlaceOfWork() {
+    return placeOfWork;
   }
 }

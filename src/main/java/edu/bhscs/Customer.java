@@ -2,36 +2,31 @@ package edu.bhscs;
 
 public class Customer {
   private String name;
-  private double money;
-  private int cakesOwned;
+  private Cake cake;
+  private double cash;
 
-  public Customer(String name, double money) {
+  public Customer(String name) {
     this.name = name;
-    this.money = money;
-    this.cakesOwned = 0;
+    this.cash = 50.0;
   }
 
-  public String getName() {
-    return name;
-  }
-
-  public double getMoney() {
-    return money;
-  }
-
-  public int getCakesOwned() {
-    return cakesOwned;
-  }
-
-  public boolean buyCake(double price) {
-    if (money >= price) {
-      money -= price;
-      cakesOwned++;
-      System.out.println(name + " bought a cake for $" + price);
-      return true;
-    } else {
-      System.out.println(name + " does not have enough money to buy the cake.");
-      return false;
+  public double pay(double price) {
+    if (price > cash) {
+      System.out.println(name + " doesn't have enough money! Paying remaining $" + cash);
+      double temp = cash;
+      cash = 0;
+      return temp;
     }
+    cash -= price;
+    return price;
+  }
+
+  public void takeCake(Cake cake) {
+    this.cake = cake;
+    System.out.println(name + " received a " + cake.getType() + " cake!");
+  }
+
+  public Cake getCake() {
+    return cake;
   }
 }

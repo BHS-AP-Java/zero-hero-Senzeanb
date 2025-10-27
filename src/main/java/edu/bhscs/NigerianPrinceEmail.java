@@ -17,8 +17,6 @@ public class NigerianPrinceEmail {
         "Dear Friend,\n\nI am Prince Abacha from Nigeria. I need your help to transfer $10,000,000 out of my country. Please send your bank details.\n\nYours sincerely,\nPrince Abacha";
   }
 
-
-
   public String getSender() {
     return sender;
   }
