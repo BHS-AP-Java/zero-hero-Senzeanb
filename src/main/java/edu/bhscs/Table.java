@@ -1,42 +1,50 @@
 package edu.bhscs;
 
 public class Table {
-  // fields and properties
-  int legs;
-  int width;
+  private int legs;
+  private int width;
+  private String legSymbol = "|";
+  private String topSymbol = "-";
 
-  // Constructor
   public Table(int legs, int width) {
     this.legs = legs;
     this.width = width;
-    System.out.println("My table is alive! width legs: " + legs);
+    System.out.println("My table is alive");
   }
 
-  // Draw the table using for loops
+  public void setLegs(String legSymbol) {
+    this.legSymbol = legSymbol;
+  }
+
+  public void setTop(String topSymbol) {
+    this.topSymbol = topSymbol;
+  }
+
   public void draw() {
-    // Draw the tabletop
-    System.out.print("  ");
+    // Draw the top of the table
     for (int i = 0; i < width; i++) {
-      System.out.print("=");
+      System.out.print(topSymbol);
     }
     System.out.println();
-    System.out.println(this.legs);
-    // Draw the legs
-    for (int i = 0; i < this.legs; i++) {
 
-      System.out.print(" |");
-/* 
-      for (int j = 0; j < width/this.legs - 1; j++) {
+    // Draw the legs evenly spaced (including both ends)
+    for (int i = 0; i < width; i++) {
+      // Calculate position of each leg
+      boolean drawLeg = false;
 
+      for (int l = 0; l < legs; l++) {
+        int legPos = (int) Math.round((double) l * (width - 1) / (legs - 1));
+        if (i == legPos) {
+          drawLeg = true;
+          break;
+        }
+      }
+
+      if (drawLeg) {
+        System.out.print(legSymbol);
+      } else {
         System.out.print(" ");
       }
-      System.out.println("|");*/
-    }
-
-    // Draw the table base
-    System.out.print("  ");
-    for (int i = 0; i < width; i++) {
-      System.out.print("-");
     }
     System.out.println();
   }

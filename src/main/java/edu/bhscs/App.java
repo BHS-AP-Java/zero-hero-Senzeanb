@@ -6,9 +6,11 @@ public class App {
   }
 
   public static void date10_27() {
+
     Baker bob = new Baker("Bob");
-    Table t = new Table(3, 25);
-    Cake bDay = bob.bakes(5, "Suzzie");
+    Cake bDay = bob.bakes(5, "chocolate");
+    Table t = new Table(4, 23);
+
     bDay.draw(t);
   }
 }
