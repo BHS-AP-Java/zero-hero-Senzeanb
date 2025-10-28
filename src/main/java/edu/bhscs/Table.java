@@ -9,7 +9,7 @@ public class Table {
   public Table(int legs, int width) {
     this.legs = legs;
     this.width = width;
-    System.out.println("My table is alive!");
+    System.out.println("My table is alive! width legs: " + legs);
   }
 
   // Draw the table using for loops
@@ -20,14 +20,17 @@ public class Table {
       System.out.print("=");
     }
     System.out.println();
-
+    System.out.println(this.legs);
     // Draw the legs
-    for (int i = 0; i < legs; i++) {
+    for (int i = 0; i < this.legs; i++) {
+
       System.out.print(" |");
-      for (int j = 0; j < width - 2; j++) {
+/* 
+      for (int j = 0; j < width/this.legs - 1; j++) {
+
         System.out.print(" ");
       }
-      System.out.println("|");
+      System.out.println("|");*/
     }
 
     // Draw the table base
@@ -36,6 +39,5 @@ public class Table {
       System.out.print("-");
     }
     System.out.println();
-  
   }
 }

@@ -10,7 +10,5 @@ public class App {
     Table t = new Table(3, 25);
     Cake bDay = bob.bakes(5, "Suzzie");
     bDay.draw(t);
-
   }
-  }
-
+}

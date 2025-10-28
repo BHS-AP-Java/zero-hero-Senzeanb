@@ -73,23 +73,15 @@ public class Baker {
     return new Cake(type, frosting, layers);
   }
 
-
   public Cake bakes() {
     int layers = 5; // define locally
     String type = "Chocolate"; // define locally
     String frosting = "Vanilla";
     return new Cake(type, frosting, layers);
-}
-
-public Cake bakes(int layers, String type) {
-  String frosting = "Vanilla"; // or get from Player input
-  return new Cake(type, frosting, layers);
-}
-
-
-
   }
 
-
-
-
+  public Cake bakes(int layers, String type) {
+    String frosting = "Vanilla"; // or get from Player input
+    return new Cake(type, frosting, layers);
+  }
+}
