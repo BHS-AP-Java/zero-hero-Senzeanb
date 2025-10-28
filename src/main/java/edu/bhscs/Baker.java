@@ -14,13 +14,15 @@ public class Baker {
     this.cash = 0;
   }
 
-//Constructor
-Baker(String name){
-  this.name = name;
-}
-public Baker (Player p){
-  this.p = p;
-}
+  // Constructor
+  Baker(String name) {
+    this.name = name;
+  }
+
+  public Baker(Player p) {
+    this.p = p;
+  }
+
   // Job method
   public void takeJob(Store bakery) {
     if (p.getYesNo("Do you want to work at " + bakery.getName() + "?")) {
@@ -65,7 +67,29 @@ public Baker (Player p){
     return placeOfWork;
   }
 
-  public Cake bakes(int i, String string) {
-    return new Cake(i, string);
+  public Cake bakes(int layers) {
+    String type = p.giveAnswer("What type of cake?"); // now type is defined locally
+    String frosting = p.giveAnswer("What frosting do you want?");
+    return new Cake(type, frosting, layers);
   }
+
+
+  public Cake bakes() {
+    int layers = 5; // define locally
+    String type = "Chocolate"; // define locally
+    String frosting = "Vanilla";
+    return new Cake(type, frosting, layers);
 }
+
+public Cake bakes(int layers, String type) {
+  String frosting = "Vanilla"; // or get from Player input
+  return new Cake(type, frosting, layers);
+}
+
+
+
+  }
+
+
+
+
