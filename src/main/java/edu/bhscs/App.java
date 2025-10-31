@@ -9,8 +9,7 @@ public class App {
 
     Baker bob = new Baker("Bob");
     Cake bDay = bob.bakes(5, "chocolate");
-    Table t = new Table(4, 23);
-
+    Table t = new Table(4, 25);
     bDay.draw(t);
   }
 }

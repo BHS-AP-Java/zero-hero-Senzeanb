@@ -2,6 +2,7 @@ package edu.bhscs;
 
 public class Cake {
 
+  public static int width;
   private String type;
   private String frosting;
   private int layers;
@@ -33,32 +34,36 @@ public class Cake {
   // Draw the cake with two inputs from player
   public void draw(String playerName, String playerAge) {
     System.out.println("\nCake for " + playerName + " (Age: " + playerAge + ")\n");
+    // Draw candles
+    for (int c = 0; c < layers; c++) {
+      System.out.print("* ");
+      System.out.print("||");
+      // Draw stacked layers
+      for (int i = 1; i <= layers; i++) {
+        // Leading spaces for perspective
+        for (int s = 0; s < layers + 5 * i; s++) {
+          System.out.print(" ");
+        }
+        System.out.print("/");
 
-    // Draw stacked layers
-    for (int i = 1; i <= layers; i++) {
-      // Leading spaces for perspective
-      for (int s = 0; s < layers + 5 * i; s++) {
-        System.out.print(" ");
+        // Width grows with layer
+        for (int j = 0; j < i * 4; j++) {
+          System.out.print("#");
+        }
+
+        System.out.println("\\");
       }
-      System.out.print("/");
 
-      // Width grows with layer
-      for (int j = 0; j < i * 4; j++) {
-        System.out.print("#");
+      // Frosting line
+      System.out.print("|");
+      for (int j = 0; j < layers * 4; j++) {
+        System.out.print("=");
       }
+      System.out.println("|");
 
-      System.out.println("\\");
+      // Cake info
+      System.out.println("Type: " + type + " | Frosting: " + frosting);
     }
-
-    // Frosting line
-    System.out.print("|");
-    for (int j = 0; j < layers * 4; j++) {
-      System.out.print("=");
-    }
-    System.out.println("|");
-
-    // Cake info
-    System.out.println("Type: " + type + " | Frosting: " + frosting);
   }
 
   public void draw(Table t) {
@@ -74,15 +79,20 @@ public class Cake {
       System.out.println("\\");
     }
 
-    // Frosting line
+    // of cake line
     System.out.print("|");
     for (int j = 0; j < layers * 4; j++) System.out.print("=");
     System.out.println("|");
 
-    // Cake info
+    //
 
     // Draw the table underneath
     t.draw();
-    //
+    // create width of the cake
+    int cakeWidth = layers * 4;
+  }
+
+  public int getWidth() {
+    return this.width;
   }
 }
