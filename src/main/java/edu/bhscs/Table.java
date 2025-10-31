@@ -118,17 +118,7 @@ public class Table {
     System.out.println();
 
     // Center the cake with table
-      int offset = (cake.getWidth() - this.getWidth()) / 2;
-
-    if(offset < 0) { /* do the right thing when myTable is bigger */ }
-    else { /* do the right thing when the cake is bigger  */ }
-
-  }
-
-
-  public int getWidth() {
-    return this.width;
-
+    
   }
   }
 
