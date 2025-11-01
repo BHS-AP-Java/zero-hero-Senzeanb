@@ -2,7 +2,7 @@ package edu.bhscs;
 
 public class Table {
   private int legs;
-  private int width;
+  private int width = 99;
   private String legSymbol = "|";
   private String topSymbol = "~";
   private String bottomSymbol = "-";
@@ -23,6 +23,8 @@ public class Table {
   }
 
   public void draw() {
+    System.out.println("I am drawing the raw table, with no extra info");
+    /*
     // Draw the top of the table
     for (int i = 0; i < width; i++) {
       System.out.print(topSymbol);
@@ -51,14 +53,28 @@ public class Table {
         System.out.print(legSymbol);
       } else {
         System.out.print(" ");
-      }
+      }// Can youhear me?
+
     }
     System.out.println();
     // Draw the bottom of the table
     for (int i = 0; i < width; i++) {
       System.out.print(bottomSymbol);
     }
+    */
     System.out.println();
+  }
+
+
+  public void draw(int offset){
+    for(int i = 0; i < offset; i++){
+      System.out.print( i );
+    }
+    this.draw();
+  }
+
+  public void draw(Cake cake){
+    System.out.println("I will draw this talbe with a REAL cake object " + cake);
   }
 
   // Draws the table with a cake string centered on the top.
@@ -118,7 +134,20 @@ public class Table {
     System.out.println();
 
     // Center the cake with table
-    
-  }
+
+    // int offset = (cake.getWidth() - this.getWidth()) / 2;
+    // if(offset < 0) { /* do the right thing when myTable is bigger */ }
+    // else { /* do the right thing when the cake is bigger  */ }
+
   }
 
+
+
+  public int getWidth(){
+      return this.width;
+  }
+}
+
+
+//I am typing in Table at the bottom
+// Can you see me typing here

@@ -32,9 +32,14 @@ public class Cake {
   }
 
   // Draw the cake with two inputs from player
-  public void draw(String playerName, String playerAge) {
+  public void draw(String playerName, String playerAge, int offset) {
+    for(int i = 0; i < offset; i++){
+      System.out.print( i );
+    }
     System.out.println("\nCake for " + playerName + " (Age: " + playerAge + ")\n");
     // Draw candles
+
+    /*
     for (int c = 0; c < layers; c++) {
       System.out.print("* ");
       System.out.print("||");
@@ -64,12 +69,67 @@ public class Cake {
       // Cake info
       System.out.println("Type: " + type + " | Frosting: " + frosting);
     }
+    */
   }
 
   public void draw(Table t) {
     System.out.println("Type: " + type + " | Frosting: " + frosting);
     // Draw a simple 3D-ish cake on the table
     System.out.println("\nYour cake is on the table!\n");
+
+    System.out.println("???????????????????????????????????????????");
+
+    // Here is where I actually need to do the tricky math!
+    int offset      = (this.getWidth() - t.getWidth())/2;
+    int cakeOffset  = 0;
+    int tableOffset = 0;
+
+    if(offset > 0){
+      cakeOffset    = 0;
+      tableOffset   = offset;
+    }
+    else{
+      cakeOffset    = Math.abs(tableOffset);
+      tableOffset   = 0;
+    }
+
+
+    // Well.... I need to draw the cake first.... cause it is on top.
+    this.draw("Sen the great", "17" , cakeOffset);
+
+    System.out.println("???????????????????????????????????????????");
+
+    // then I will need to draw the table
+    //t.draw(tableOffset);
+
+
+
+    // the tricky bit... I will want the table or the cake to be offset some amount... which is hard.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
     // Cake layers
     for (int i = 1; i <= layers; i++) {
@@ -89,10 +149,13 @@ public class Cake {
     // Draw the table underneath
     t.draw();
     // create width of the cake
-    int cakeWidth = layers * 4;
+    int cakeWidth = layers * 4;*/
   }
 
   public int getWidth() {
     return this.width;
   }
+
+  //methods for cake to end up centered
+
 }
