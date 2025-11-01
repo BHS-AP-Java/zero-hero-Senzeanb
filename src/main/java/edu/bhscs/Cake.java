@@ -36,7 +36,8 @@ public class Cake {
     for(int i = 0; i < offset; i++){
       System.out.print( i );
     }
-    System.out.println("\nCake for " + playerName + " (Age: " + playerAge + ")\n");
+    System.out.print( offset );
+    System.out.println(" Cake for " + playerName + " (Age: " + playerAge + ")\n");
     // Draw candles
 
     /*
@@ -100,7 +101,7 @@ public class Cake {
     System.out.println("???????????????????????????????????????????");
 
     // then I will need to draw the table
-    //t.draw(tableOffset);
+    t.draw(tableOffset);
 
 
 
