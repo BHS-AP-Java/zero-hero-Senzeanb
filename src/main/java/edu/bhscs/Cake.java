@@ -2,10 +2,15 @@ package edu.bhscs;
 
 public class Cake {
 
-  public static int width;
-  private String type;
-  private String frosting;
-  private int layers;
+
+//properties
+  private String frosting = "vanilla";
+ int layers=4;
+ String type = "Chocolate";
+int width= 10;
+int height = 4;
+
+
 
   // Constructor
   public Cake(String type, String frosting, int layers) {
@@ -17,7 +22,10 @@ public class Cake {
   public Cake(int i, String string) {
     // TODO Auto-generated constructor stub
   }
+// defqult constructor
+public Cake(){
 
+}
   // Getters
   public String getType() {
     return type;
@@ -33,130 +41,133 @@ public class Cake {
 
   // Draw the cake with two inputs from player
   public void draw(String playerName, String playerAge, int offset) {
-    for(int i = 0; i < offset; i++){
-      System.out.print( i );
+    for (int i = 0; i < offset; i++) {
+      System.out.print(i);
     }
-    System.out.print( offset );
+    System.out.print(offset);
     System.out.println(" Cake for " + playerName + " (Age: " + playerAge + ")\n");
     // Draw candles
 
-    /*
-    for (int c = 0; c < layers; c++) {
-      System.out.print("* ");
-      System.out.print("||");
-      // Draw stacked layers
-      for (int i = 1; i <= layers; i++) {
-        // Leading spaces for perspective
-        for (int s = 0; s < layers + 5 * i; s++) {
-          System.out.print(" ");
-        }
-        System.out.print("/");
 
-        // Width grows with layer
-        for (int j = 0; j < i * 4; j++) {
-          System.out.print("#");
-        }
 
-        System.out.println("\\");
-      }
 
-      // Frosting line
-      System.out.print("|");
-      for (int j = 0; j < layers * 4; j++) {
-        System.out.print("=");
-      }
-      System.out.println("|");
 
       // Cake info
       System.out.println("Type: " + type + " | Frosting: " + frosting);
     }
-    */
-  }
+
+
 
   public void draw(Table t) {
-    System.out.println("Type: " + type + " | Frosting: " + frosting);
-    // Draw a simple 3D-ish cake on the table
-    System.out.println("\nYour cake is on the table!\n");
 
-    System.out.println("???????????????????????????????????????????");
+    //TODO cebterung, I need info
 
-    // Here is where I actually need to do the tricky math!
-    int offset      = (this.getWidth() - t.getWidth())/2;
-    int cakeOffset  = 0;
-    int tableOffset = 0;
+    //
+    // Lets draw the othefr guys with that info
+    int tablewidth= t.getWidth();
+    int cakeWidth = this.width;
+    int tableOffset =0;
+    int cakeoffset =0;
+    int offset = 0;
 
-    if(offset > 0){
-      cakeOffset    = 0;
-      tableOffset   = offset;
+    offset = (tablewidth -  cakeWidth)/2;
+    if (tablewidth >  cakeWidth){
+       tableOffset = 0;
+      cakeoffset = Math.abs(offset);
     }
     else{
-      cakeOffset    = Math.abs(tableOffset);
-      tableOffset   = 0;
+       tableOffset = Math.abs(offset);
+       cakeoffset = 0;
     }
+    //First I will draw this cake on top!
+   this.draw(cakeoffset);
+
+    // The i will draw the table under it
+      t.draw(tableOffset);
+
+    System.out.println(t.getWidth());
+    System.out.println("Type: " + type + " | Frosting: " + frosting);
+    // Draw a simple 3D-ish cake on the table
+    System.out.println("\n Your cake is on the table!\n");
+
+
+
+
 
 
     // Well.... I need to draw the cake first.... cause it is on top.
-    this.draw("Sen the great", "17" , cakeOffset);
+    this.draw("Sen ", "17", cakeoffset);
 
-    System.out.println("???????????????????????????????????????????");
+
 
     // then I will need to draw the table
     t.draw(tableOffset);
 
-
-
-    // the tricky bit... I will want the table or the cake to be offset some amount... which is hard.
-
-
+    // the tricky bit... I will want the table or the cake to be offset some amount... which is
+    // hard.
 
 
 
+    // Draw centered cake
+    int tableWidth = t.getWidth();
+     cakeWidth = layers * 4 + 2; // approximate visible width of cake
+    offset = (tableWidth - cakeWidth) / 2;
 
+    // Adjust left if it’s slightly off-center
+    if ((tableWidth - cakeWidth) % 2 != 0) {
+      offset -= 1;
+    }
+    if (offset < 0)
+      offset = 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-    // Cake layers
     for (int i = 1; i <= layers; i++) {
-      for (int s = 0; s < layers - i; s++) System.out.print(" ");
+      // print spaces before the cake line
+      for (int s = 0; s < offset + (layers - i); s++) {
+        System.out.print(" ");
+      }
       System.out.print("/");
-      for (int j = 0; j < i * 4; j++) System.out.print("#");
+      for (int j = 0; j < i * 4; j++) {
+        System.out.print("#");
+      }
       System.out.println("\\");
     }
 
-    // of cake line
+    // Base frosting line
+    for (int s = 0; s < offset; s++) {
+      System.out.print(" ");
+    }
     System.out.print("|");
-    for (int j = 0; j < layers * 4; j++) System.out.print("=");
+    for (int j = 0; j < layers * 4; j++) {
+      System.out.print("=");
+    }
     System.out.println("|");
+
 
     //
 
     // Draw the table underneath
     t.draw();
     // create width of the cake
-    int cakeWidth = layers * 4;*/
+    int cakewidth = layers * 4;
   }
 
   public int getWidth() {
     return this.width;
   }
 
-  //methods for cake to end up centered
+  // methods for cake to end up centered
+public void draw(){
 
+  System.out.println("width:" + this.width);
+  System.out.println("layer:" + this.layers);
+}
+public void draw(int shiftRight ){
+System.out.println("before I draw, shift it:" + shiftRight);
+//this.draw();
+for(int s =0; s<shiftRight; s++){
+  System.out.print("");
+
+
+}
+}
 }

@@ -13,6 +13,6 @@ public class Main {
 
     Cake myCake = new Cake(type, frosting, layers);
 
-    myCake.draw(name, age);
+   // myCake.draw(name, age);
   }
 }

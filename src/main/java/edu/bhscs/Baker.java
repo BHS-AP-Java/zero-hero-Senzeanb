@@ -49,7 +49,7 @@ public class Baker {
     String playerAge = p.giveAnswer("Enter your age for the cake:");
 
     // Draw the cake
-    cake.draw(playerName, playerAge);
+   // cake.draw(playerName, playerAge);
 
     // Complete transaction
     cash += c.pay(price);
