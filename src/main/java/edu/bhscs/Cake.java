@@ -98,7 +98,8 @@ public class Cake {
     if ((tableWidth - cakeWidth) % 2 != 0) {
       offset -= 1;
     }
-    if (offset < 0) offset = 0;
+    if (offset < 0)
+      offset = 0;
 
     for (int i = 1; i <= layers; i++) {
       // print spaces before the cake line
