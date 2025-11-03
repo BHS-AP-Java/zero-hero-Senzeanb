@@ -12,7 +12,7 @@ public class App {
     Cake bDay = bob.bakes(4, "chocolate");
     Cake myCake = new Cake();
 
-    Table myTable = new Table(4, 77);
+    Table myTable = new Table(7, 77);
     myCake.draw(myTable);
   }
 }
