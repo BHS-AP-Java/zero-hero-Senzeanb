@@ -10,8 +10,6 @@ public class Table {
   public Table(int legs, int width) {
     this.legs = legs;
     this.width = width;
-
-    
   }
 
   public void setLegs(String legSymbol) {
@@ -23,7 +21,6 @@ public class Table {
   }
 
   public void draw() {
-
 
     // Draw the top of the table
     for (int i = 0; i < width; i++) {
@@ -53,8 +50,7 @@ public class Table {
         System.out.print(legSymbol);
       } else {
         System.out.print(" ");
-      }// Can youhear me?
-
+      } // Can youhear me?
     }
     System.out.println();
     // Draw the bottom of the table
@@ -72,8 +68,6 @@ public class Table {
     }
     this.draw();
   }
-
-
 
   // Draws the table with a cake string centered on the top.
   public void draw(String cake) {
@@ -130,14 +124,9 @@ public class Table {
       System.out.print(bottomSymbol);
     }
     System.out.println();
-
-
-
   }
 
   public int getWidth() {
     return this.width;
   }
 }
-
-
