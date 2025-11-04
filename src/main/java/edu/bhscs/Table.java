@@ -2,9 +2,9 @@ package edu.bhscs;
 
 public class Table {
   private int legs;
-  private int width = 99;
+  private int width = 77;
   private String legSymbol = "|";
-  private String topSymbol = "~";
+  private String topSymbol = "_";
   private String bottomSymbol = "-";
 
   public Table(int legs, int width) {
