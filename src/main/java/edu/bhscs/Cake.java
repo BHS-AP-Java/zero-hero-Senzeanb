@@ -74,7 +74,7 @@ public class Cake {
     t.draw(tableOffset);
 
     System.out.println("width of table:" + t.getWidth());
-    System.out.println( "Type: " + type + " | Frosting: " + frosting);
+    System.out.println("Type: " + type + " | Frosting: " + frosting);
     // Draw a simple 3D-ish cake on the table
     System.out.println("\n Your cake is on the table!\n");
 
