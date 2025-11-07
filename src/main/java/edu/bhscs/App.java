@@ -8,7 +8,7 @@ public class App {
   public static void date10_27() {
 
     Baker bob = new Baker("Bob");
-    System.out.println("Baker: Bob bakes a cake for: Sen" );
+    System.out.println("Baker: Bob bakes a cake for: Sen");
     Cake bDay = bob.bakes(4, "chocolate");
     Cake myCake = new Cake();
 
@@ -19,11 +19,10 @@ public class App {
     System.out.println("\nBaker: Bob bakes a cake for: Amy");
     Cake amysCake = bob.bakes(6, "strawberry");
     Table amyTable = new Table(4, 50);
-    amyTable.setLegs("I");    amysCake.draw(amyTable);
-    
+    amyTable.setLegs("I");
+    amysCake.draw(amyTable);
+
     // make amy's age 7
     amysCake.draw("Amy", "7", 10);
-
-
   }
 }
