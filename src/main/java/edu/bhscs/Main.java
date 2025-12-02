@@ -1,8 +1,9 @@
 package edu.bhscs;
 
 public class Main {
+  public static void manyain(String[] args) {}
 
-  public static void main(String[] args) {
+  public static void gain(String[] args) {
     Player user = new Player(); // no string argument
 
     String name = user.giveAnswer("What is your name?");
