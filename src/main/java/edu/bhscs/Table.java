@@ -2,7 +2,7 @@ package edu.bhscs;
 
 public class Table implements Offsetable {
 
-  
+
   private int legs;
   private int width = 77;
   private String legSymbol = "|";
