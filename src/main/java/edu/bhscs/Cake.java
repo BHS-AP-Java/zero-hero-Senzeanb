@@ -1,8 +1,9 @@
 package edu.bhscs;
 
-public class Cake {
+public class Cake implements Offsetable {
 
   // properties
+
   private String frosting = "vanilla";
   int layers = 4;
   String type = "Chocolate";
@@ -38,9 +39,7 @@ public class Cake {
 
   // Draw the cake with two inputs from player
   public void draw(String playerName, String playerAge, int offset) {
-    for (int i = 0; i < offset; i++) {
-      System.out.print(i);
-    }
+
     System.out.print(offset);
     System.out.println(" Cake for " + playerName + " (Age: " + playerAge + ")\n");
     // Draw candles
@@ -75,7 +74,7 @@ public class Cake {
     // The i will draw the table under it
     t.draw(tableOffset);
 
-    System.out.println(t.getWidth());
+    System.out.println("width of table:" + t.getWidth());
     System.out.println("Type: " + type + " | Frosting: " + frosting);
     // Draw a simple 3D-ish cake on the table
     System.out.println("\n Your cake is on the table!\n");
@@ -147,5 +146,19 @@ public class Cake {
     for (int s = 0; s < shiftRight; s++) {
       System.out.print("");
     }
+  }
+
+  public interface Offsetable {
+    int getWidth();
+
+    // Default centering logic — always clamps to 0 so alignment never goes negative.
+    default int getOffset(Offsetable below) {
+      if (below == null) return 0;
+      return Math.max(0, (below.getWidth() - this.getWidth()) / 2);
+    }
+
+    // Each Offsetable thing knows how to draw itself
+    // relative to whatever is beneath it.
+    void draw(Offsetable below);
   }
 }
