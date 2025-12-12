@@ -1,5 +1,3 @@
 package edu.bhscs;
 
-public interface Offsetable {
-
-}
+public interface Offsetable {}

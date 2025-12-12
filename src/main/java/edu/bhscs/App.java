@@ -12,13 +12,13 @@ public class App {
     Cake bDay = bob.bakes(4, "chocolate");
     Cake myCake = new Cake();
 
-    Table myTable = new Table(7, 77);
+    Table myTable = new Table(7, 65);
     myCake.draw(myTable);
 
     // making a cake for another person
     System.out.println("\nBaker: Bob bakes a cake for: Amy");
     Cake amysCake = bob.bakes(6, "strawberry");
-    Table amyTable = new Table(4, 50);
+    Table amyTable = new Table(4, 40);
     amyTable.setLegs("I");
     amysCake.draw(amyTable);
 
