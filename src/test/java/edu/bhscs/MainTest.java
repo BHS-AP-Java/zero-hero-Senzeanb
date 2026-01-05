@@ -6,13 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
 
 class MainTest {
 
-  // Student name
-  // Class period
-  // Project name
+  // Student name: Sen Bajgai
+  // Class period: 02
+  // Project name:
   // Date
   /*
    * TEST CLASS DESCRIPTION:
@@ -37,7 +36,7 @@ class MainTest {
   @DisplayName("height=3 with '#': builds three lines 1..3")
   void drawIt_height3_hash() {
     String expected = "" + "#\n" + "##\n" + "###\n";
-    // assertEquals(expected, Main.drawIt(3, '#'));
+    assertEquals(expected, Main.drawIt(3, '#'));
   }
 
   @Disabled
