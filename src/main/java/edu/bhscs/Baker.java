@@ -6,7 +6,7 @@ public class Baker {
   private Store placeOfWork;
   private int cash;
   private String name;
-
+//
   public Baker(String name, Player p, Flour f) {
     this.name = name;
     this.p = p;
